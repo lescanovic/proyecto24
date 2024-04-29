@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './secciones/inicio/inicio.component';
 import { GaleriaComponent } from './secciones/galeria/galeria.component';
 
-import { RootNavComponent } from './root-nav/root-nav.component';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -18,8 +18,7 @@ import { MatListModule } from '@angular/material/list';
   declarations: [
     AppComponent,
     InicioComponent,
-    GaleriaComponent,
-    RootNavComponent
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,
