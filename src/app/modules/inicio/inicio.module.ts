@@ -17,6 +17,11 @@ import {MatCardModule} from '@angular/material/card';
     InicioRoutingModule,
     MatButtonModule,
     MatCardModule
+  ],
+
+  exports: [
+     CardComponent
+
   ]
 })
 export class InicioModule { }

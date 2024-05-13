@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//Importamos componentes globales
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -19,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        SharedModule
        
     ]
 })
