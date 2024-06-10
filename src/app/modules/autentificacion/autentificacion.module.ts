@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//componentes de material 
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
-import {MatButtonModule} from '@angular/material/button';
+
 
 //Vistas de autentificacion
 import { AutentificacionRoutingModule } from './autentificacion-routing.module';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { IniciosesionComponent } from './pages/iniciosesion/iniciosesion.component';
+
+//componentes de material 
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatButtonModule} from '@angular/material/button';
+import {FormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -23,7 +27,8 @@ import { IniciosesionComponent } from './pages/iniciosesion/iniciosesion.compone
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
 
   ],
   exports: [
@@ -32,7 +37,9 @@ import { IniciosesionComponent } from './pages/iniciosesion/iniciosesion.compone
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule,
+    FormsModule
   ],
 })
 export class AutentificacionModule { }
