@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from '../../services/auth.service';
 //importamos componente de ruta de angular
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/modules/shared/service/firestore.service';
 
 
 @Component({
@@ -30,9 +31,20 @@ export class RegistroComponent {
 
   constructor(
     public servicioAuth: AuthService,
+    public servicioFirestore: FirestoreService,
     public servicioRutas: Router
 
   ) { }
+  async guardarUsuario(){
+this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
+.then(res =>{
+  console.log(this.usuarios);
+
+})
+.catch(erro =>{
+  console.log('Error =>',erro)
+})
+}
   async registrar() {
     /*
     const credenciales = {
