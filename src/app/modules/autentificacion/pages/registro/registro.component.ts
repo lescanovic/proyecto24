@@ -70,15 +70,15 @@ this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
     .catch(error =>{
       alert("Hubo un problema al registrar un nuevo usuario :c \n"+error)
     })
+//constante uid captura el identificador de la BD
+const uid = await this.servicioAuth.obtenerUid();
+//se le asigna al atributo de la interfaz esta constante
+this.usuarios.uid = uid ;
+//llamamos a la funcion guardarUsuario
+this.guardarUsuario()
 
 
-
-
-
-
-
-
-
+this,limpiarInputs();
 
 
 
