@@ -2,3 +2,23 @@
     flex: 1 1 auto;
   }
   
+
+
+
+  /* Corresponde a pantallas mas chicas ej:celulares */
+@media(min-width: 300px) and (max-width:700px){
+  mat-toolbar{
+    background-color: pink;
+
+  }
+}
+/* para pantallas que pasen el minimo de px, es decir, mas grandes, ej:tablets,televisores */
+@media(min-width:700px){
+  mat-toolbar{
+    background-color: gray;
+  }
+}
+
+
+
+    

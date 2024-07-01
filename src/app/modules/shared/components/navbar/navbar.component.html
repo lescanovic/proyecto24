@@ -1,7 +1,11 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="example-icon" id="menuSecciones" [matMenuTriggerFor]="seccion">
       <mat-icon>menu</mat-icon>
     </button>
+    <mat-menu #seccion="matMenu">
+      <button id="menuInicio" mat-menu-item  routerLink="/inicio">Inicio</button>
+      <button id="menuProducto" mat-menu-item [matMenuTriggerFor]="producto">Productos</button>
+    </mat-menu>
     <span>My App</span>
     <!-- Boton para la vista del inicio -->
     <button mat-button  routerLink="/inicio">Inicio</button>
