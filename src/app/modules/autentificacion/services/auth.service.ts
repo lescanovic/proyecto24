@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 //Servicio en la nube de autentificacion de Firebase
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+//import {angularFirestore} from '.angular/fire/compat/firestore'; 
 
 @Injectable({
   providedIn: 'root'
@@ -50,4 +51,7 @@ async obtenerUid(){
   }
 }
 
+}
+obtenerUsuario(email:string){
+return this.servicioFirestore.collection('usuarios',ref => ref.where('email' , '==','email'.length().toPromise()))
 }

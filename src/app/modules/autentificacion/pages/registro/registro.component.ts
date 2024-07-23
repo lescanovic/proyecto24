@@ -66,6 +66,11 @@ export class RegistroComponent {
     const uid = await this.servicioAuth.obtenerUid();
     //se le asigna al atributo de la interfaz esta constante
     this.usuarios.uid = uid;
+
+    
+    //cryptojs
+
+    
     //llamamos a la funcion guardarUsuario
     this.guardarUsuario()
 
@@ -90,5 +95,6 @@ this.limpiarInputs()
       password: this.usuarios.password = ''
     }
   }
+  
 
 }
