@@ -1,0 +1,36 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto  of coleccionProductos">
+          <th scope="row">1</th>
+          <td>
+            <img src="{{producto.imagen}}" alt="{{producto.alt}}" >
+          </td>
+          <td>{{producto.nombre}}</td>
+          <td>{{producto.precio}}</td>
+          <td>{{producto.descripcion}}</td>
+          <td>{{producto.categoria}}</td>
+       <!-- Acciones -->
+        <td>
+            <button id="btn-edit" title="Editar" type="button" class="btn btn-outline-warning">
+                <!-- matt icon> edit<  tengo un error en admin modules por lo tanto no puedo importarlo-->
+            </button>
+        </td>
+        <td>
+            <button  id="btn-delete" title="Eliminar" type="button" class="btn btn-outline-danger">
+                <!-- matt icon> delete <  tengo un error en admin modules por lo tanto no puedo importarlo-->
+            </button>
+        </td>
+        </tr>
+    </tbody>
+</table>

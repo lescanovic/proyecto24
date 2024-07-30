@@ -16,6 +16,7 @@ import {FormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 
 
+
 @NgModule({
   declarations: [
     RegistroComponent,
