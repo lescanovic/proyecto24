@@ -11,6 +11,11 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 export class TableComponent {
   // Creamos coleccion local de productos -> la definimos como array
   coleccionProductos: Producto [] = [];
+//Definimos formulario para los productos 
+
+//Atributos alfanumeros sin string se inicializan con comillas simples 
+//Atributos numericos se inicializan con 0
+
 
 producto = new FormGroup ({
   nombre:new FormControl ('',Validators.required), 
@@ -21,9 +26,10 @@ producto = new FormGroup ({
   alt:  new FormControl('',Validators.required),
 })
 
-constructor( public servicioCrud : CrudService){
 
-}
+constructor( public servicioCrud : CrudService){}
+
+
 }
 
 

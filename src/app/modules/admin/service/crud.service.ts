@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
-//import{angularfirestore,angularfirestorecollection}
+import{AngularFirestore,AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +8,8 @@ import { Producto } from 'src/app/models/producto';
 export class CrudService {
 
   //Definimos coleccion para los productos de la web
-private productosCollection: angularfirestorecollection<Producto>
-  constructor(private database = angularfirestore) { 
+private productosCollection: AngularFirestoreCollection<Producto>
+  constructor(private database = AngularFirestore) { 
     this.productosCollection = database.collection('producto')
   }
 
