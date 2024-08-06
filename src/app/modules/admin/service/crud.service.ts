@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import{AngularFirestore,AngularFirestoreCollection} from '@angular/fire/compat/firestore';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,10 @@ return new Promise (async(resolve,reject)=>{
 })
   }
   //Obtener
+  obtenerProducto(){
+    //para obtener los productos que subamos a nuestra base de datos
+    return this.productosCollection.snapshotChanges().pipe(map(action =>action.map(a => a.payload.doc.data())))
+    }
   //Editar 
   //Eliminar
  
