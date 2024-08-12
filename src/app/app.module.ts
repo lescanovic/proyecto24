@@ -13,16 +13,15 @@ import{environment} from 'src/environments/environments' //vincula a la bd con l
 import{AngularFireModule} from '@angular/fire/compat' //trabaja con las colecciones de informacion
 import{AngularFireAuthModule} from '@angular/fire/compat/auth' //trabaja con la autentificacion
 import {AngularFireStorageModule} from '@angular/fire/compat/storage';
-import { TableComponent } from './modules/admin/components/table/table.component' //trabaja con imagenes y archivos
+
 @NgModule({
     declarations: [
         AppComponent,
-        TableComponent,
+   
      
       
     ],
-    providers: [],
-    bootstrap: [AppComponent],
+ 
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -33,5 +32,7 @@ import { TableComponent } from './modules/admin/components/table/table.component
         AngularFireStorageModule
        
     ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule { }

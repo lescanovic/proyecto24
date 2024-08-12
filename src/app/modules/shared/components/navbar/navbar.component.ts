@@ -28,7 +28,7 @@ cerrarSesion(){
   this.logueado = true
 
   //llamo al metodo cerrar sesion para limpiar el token
-  this.servicioAuth.cerrarsesion()
+  this.servicioAuth.cerrarSesion()
 
 this.servicioRutas.navigate(['/']) ; //nos redirigimosa la raiz del sitio con el metodo navigate 
 }

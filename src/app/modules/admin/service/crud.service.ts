@@ -10,7 +10,7 @@ export class CrudService {
 
   //Definimos coleccion para los productos de la web
 private productosCollection: AngularFirestoreCollection<Producto>
-  constructor(private database = AngularFirestore) { 
+  constructor(private database: AngularFirestore) { 
     this.productosCollection = database.collection('producto')
   }
 
@@ -34,9 +34,34 @@ return new Promise (async(resolve,reject)=>{
   //Obtener
   obtenerProducto(){
     //para obtener los productos que subamos a nuestra base de datos
-    return this.productosCollection.snapshotChanges().pipe(map(action =>action.map(a => a.payload.doc.data())))
+
+    //funciona como una captura de datos
+    return this.productosCollection.snapshotChanges()
+    .pipe(map(action =>action.map(a => a.payload.doc.data())))
     }
   //Editar 
+modificarProducto(idProducto:string, nuevaData: Producto){
+  /*Accedemos a la coleccion productos de la base de datos 
+  buscamos el id del producto seleccionado y lo actualizamos con el metodo
+  "update" enviando la nueva informacion
+  */
+return this.database.collection('productos').doc(idProducto).update(nuevaData);
+}
+
+
+
+
   //Eliminar
+eliminarProducto(idProducto:string){
+return new Promise((resolve, reject) => {
+  try{
+    const respuesta = this.productosCollection.doc(idProducto).delete();
+    resolve(respuesta);
+  }
+  catch(error){
+    reject(error);
+  }
+})
+}
  
 }

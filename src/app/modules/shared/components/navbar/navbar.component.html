@@ -3,20 +3,21 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #seccion="matMenu">
-      <button id="menuInicio" mat-menu-item  routerLink="/inicio">Inicio</button>
-      <button id="menuProducto" mat-menu-item [matMenuTriggerFor]="producto">Productos</button>
+      <button mat-menu-item routerLink="/inicio">Inicio</button>
+      <button mat-menu-item [matMenuTriggerFor]="producto">Productos</button>
     </mat-menu>
+
     <span>My App</span>
-    <!-- Boton para la vista del inicio -->
-    <button mat-button  routerLink="/inicio">Inicio</button>
+    <!-- Boton para la vista del inicio --> 
+     <button id="menuInicio" mat-button routerLink="/inicio">Inicio</button>
     <!-- Menu desplegable ->Productos -->
-    <button mat-button [matMenuTriggerFor]="producto">Productos</button>
-        <mat-menu #producto="matMenu">
-            <button mat-menu-item routerLink="/producto">General</button>
-            <button mat-menu-item routerLink="/libros">Libros</button>
-            <button mat-menu-item routerLink="/indumentaria">Indumentaria</button>
-            <button mat-menu-item routerLink="/accesorios">Accesorios</button>
-        </mat-menu>
+    <button id="menuProducto" mat-button [matMenuTriggerFor]="producto">Productos</button>
+    <mat-menu #producto="matMenu">
+        <button mat-menu-item routerLink="/producto">General</button>
+        <button mat-menu-item routerLink="/accesorios">Accesorios</button>
+        <button mat-menu-item routerLink="/indumentaria">Indumentaria</button>
+        <button mat-menu-item routerLink="/libros">Libros</button>
+    </mat-menu>
 
     <span class="example-spacer"></span>
   <!--Menu desplegable para manejar los accesos de la pagina-->
@@ -31,7 +32,7 @@
 
    <!-- carrito -->
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
+      <mat-icon>shopping_cart</mat-icon>
     </button>
   </mat-toolbar>
   

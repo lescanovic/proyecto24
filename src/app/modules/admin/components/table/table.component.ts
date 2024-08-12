@@ -15,6 +15,8 @@ export class TableComponent {
 
 //Atributos alfanumeros sin string se inicializan con comillas simples 
 //Atributos numericos se inicializan con 0
+productosSeleccionado!: Producto; 
+modalVisibleProducto: boolean = false
 
 
 producto = new FormGroup ({
@@ -28,9 +30,6 @@ producto = new FormGroup ({
   
 })
 
-
-
-
 constructor( public servicioCrud : CrudService){}
 ngOnInit(): void {
    this.servicioCrud.obtenerProducto().subscribe(producto => {
@@ -40,13 +39,14 @@ ngOnInit(): void {
 async agregarProducto(){
   if(this.producto.valid){
     let nuevoProducto: Producto ={
+      //no toma al id al principio porque la bd lo agrega solo
       idProducto: '',
       nombre: this.producto.value.nombre!,
       precio: this.producto.value.precio!,
       descripcion: this.producto.value.descripcion!,
       categoria: this.producto.value.categoria!,
       imagen: this.producto.value.imagen!,
-      alt:this.producto.value.alt,
+      alt:this.producto.value.alt!,
 
     }
     await this.servicioCrud.crearProducto(nuevoProducto)
@@ -57,6 +57,24 @@ async agregarProducto(){
       alert("Ha ocurrido un error al cargar el producto");
     });
   };
+}
+
+/**/
+mostrarBorrar(productoSeleccionado: Producto){
+  this.modalVisibleProducto = true;
+
+  this.productosSeleccionado = productoSeleccionado
+}
+
+
+borrarProducto(){
+  this.servicioCrud.eliminarProducto(this.productosSeleccionado.idProducto)
+  .then(respuesta =>{
+    alert("Se ha podido eliminar con exito")
+  })
+  .catch(error => {
+    alert("Ha ocurrido un error al eliminar el producto \n" +error)
+  })
 }
 
 }
