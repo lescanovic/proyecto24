@@ -26,7 +26,7 @@
 
             <!-- ACCIONES -->
             <td>
-                <button id="btn-edit" title="Editar" type="button" class="btn btn-outline-warning">
+                <button id="btn-edit" title="Editar" type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editarProducto" (click)="mostrarEditar(producto)">
                     <mat-icon>edit</mat-icon>
                 </button>
             </td>
@@ -111,9 +111,76 @@
 </div>
 
 
-  
-  <!-- Modal -->
-  <div class="modal fade" id="eliminarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- MODAL PARA EDITAR PRODUCTO -->
+
+  <div class="modal fade" *ngFor="let productoEdit of coleccionProductos" id="editarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- TÍTULO DEL MODAL -->
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edite el siguiente producto:</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- CUERPO DEL MODAL-->
+             <!-- Directiva para formularios -->
+            <div [formGroup]="producto" class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">Ingrese el nombre del producto:</label>
+                    <input class="form-control" type="text" formControlName="nombre" placeholder="{{productoEdit.nombre}}"> 
+                    <!-- Toma uno por uno los datos del formulario -->
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese una descripción:</label>
+                    <input class="form-control" type="text" formControlName="descripcion"
+                        placeholder="{{productoEdit.descripcion}}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese el precio:</label>
+                    <input class="form-control" type="number" formControlName="precio" placeholder="{{productoEdit.precio}}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Selecciona una categoría:</label>
+                    <select class="form-control" formControlName="categoria" class="form-select">
+                        <option selected>Elija una opción</option>
+                        <option value="rostro">Rostro</option>
+                        <option value="labios">Labios</option>
+                        <option value="ojos">Ojos</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese una imagen:</label>
+                    <input class="form-control" type="text" formControlName="imagen"
+                        placeholder="{{productoEdit.imagen}}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese texto alternativo de la imagen:</label>
+                    <input class="form-control" type="text" formControlName="alt"
+                        placeholder="{{productoEdit.alt}}">
+                </div>
+            </div>
+
+            <!-- ACCIONES DEL MODAL -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success" (click)="editarProducto()"
+                    data-bs-dismiss="modal">Guardar cambios</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+  <!-- MODAL PARA ELIMINAR PRODUCTO-->
+<div class="modal fade" id="eliminarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -129,4 +196,4 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
