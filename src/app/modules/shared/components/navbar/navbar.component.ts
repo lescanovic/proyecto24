@@ -32,4 +32,25 @@ cerrarSesion(){
 
 this.servicioRutas.navigate(['/']) ; //nos redirigimosa la raiz del sitio con el metodo navigate 
 }
+
+//Funcion para cambiar el fondo
+cambiarFondo(){
+  let toggle: HTMLInputElement | null = document.getElementById('toggle') as HTMLInputElement
+  let label_toggle : HTMLElement | null = document.getElementById('label_toggle') as HTMLElement
+
+  if (toggle) {
+    let checked: boolean = toggle.checked;
+    document.body.classList.toggle('dark',checked)
+    if (checked) {
+      label_toggle!.innerHTML = '<i class="fa-solid fa-sun"></i>'
+    }
+    else{
+      label_toggle!.innerHTML = '<i class="fa-solid fa-moon"></i>'
+    }
+
+  }
+
+
+
+}
 }
