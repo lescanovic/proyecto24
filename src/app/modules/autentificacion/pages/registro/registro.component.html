@@ -1,50 +1,50 @@
 <div class="container">
-    <div class="row">
-        <h1>Registrate</h1>
-        <i class="material-icons" style="font-size: 100px;">person</i>
-        <!-- Nombre de usuario -->
-        <mat-form-field appearance="fill">
-            <mat-label>Ingrese Nombre de Usuario</mat-label>
-            <!-- ngmodel= directiva bidireccional utilizada para formularios, se lo agregamos a cada input-->
-            <input  [(ngModel)]="usuarios.nombre" matInput placeholder="ej: pepe" required>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  <div class="row">
+      <h1>Registrate</h1>
+      <i class="material-icons" style="font-size: 100px;">person</i>
+      <!-- Nombre de usuario -->
+      <mat-form-field appearance="fill">
+          <mat-label>Ingrese Nombre de Usuario</mat-label>
+          <!-- ngmodel= directiva bidireccional utilizada para formularios, se lo agregamos a cada input-->
+          <input [(ngModel)]="usuarios.nombre" matInput placeholder="ej: pepe" required>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        
+      </mat-form-field>
+      <!-- Apellido -->
+      <mat-form-field appearance="fill">
+          <mat-label>Ingrese Apellido</mat-label>
+          <input [(ngModel)]="usuarios.apellido" matInput placeholder="ej:perez">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           
-        </mat-form-field>
-        <!-- Apellido -->
-        <mat-form-field appearance="fill">
-            <mat-label>Ingrese Apellido</mat-label>
-            <input [(ngModel)]="usuarios.apellido"  matInput placeholder="ej:perez">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            
+      </mat-form-field>
+
+      <!-- Email de usuario -->
+      <mat-form-field appearance="fill">
+          <mat-label>Igrese su email</mat-label>
+          <input [(ngModel)]="usuarios.email" matInput placeholder="ej:perezpepito@gmail.com" required>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          
+      </mat-form-field>
+      <!-- rol de usuario -->
+      <mat-form-field>
+          <mat-label>Seleccione su rol de usuario</mat-label>
+          <select matNativeControl required>
+            <option value="admin">Administrador</option>
+            <option value="vis">Visitante</option>
+          </select>
         </mat-form-field>
 
-        <!-- Email de usuario -->
-        <mat-form-field appearance="fill">
-            <mat-label>Igrese su email</mat-label>
-            <input   [(ngModel)]="usuarios.email" matInput placeholder="ej:perezpepito@gmail.com" required>
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            
+
+      <!-- Contraseña -->
+      <mat-form-field>
+          <mat-label>Ingrese su contraseña</mat-label>
+          <input [(ngModel)]="usuarios.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint align="start">Minimo:6/{{input.value.length}}</mat-hint>
         </mat-form-field>
-        <!-- rol de usuario -->
-        <mat-form-field>
-            <mat-label>Seleccione su rol de usuario</mat-label>
-            <select [(ngModel)]="usuarios.rol" matNativeControl required>
-              <option value="admin">Administrador</option>
-              <option value="vis">Visitante</option>
-            </select>
-          </mat-form-field>
-
-
-        <!-- Contraseña -->
-        <mat-form-field>
-            <mat-label>Ingrese su contraseña</mat-label>
-            <input [(ngModel)]="usuarios.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required>
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-hint align="start">Minimo:6/{{input.value.length}}</mat-hint>
-          </mat-form-field>
-          <!-- Boton para enviar la informacion a la base de datos -->
-          <button class="boton" mat-raised-button color="primary">Registrar</button>
-    </div>
+        <!-- Boton para enviar la informacion a la base de datos -->
+        <button class="boton" mat-raised-button color="primary">Registrar</button>
+  </div>
 </div>
