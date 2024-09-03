@@ -23,3 +23,7 @@ p{
 @media (min-width: 700px){
 
 }
+.col-lg-12{
+    justify-content: center;
+    display: flex;
+}
