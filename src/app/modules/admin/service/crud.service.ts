@@ -22,8 +22,8 @@ return new Promise (async(resolve,reject)=>{
     //Creamos numero identificativo para el producto en la base de datos
     const idproducto = this.database.createId()
     //asignamos ID creado al atributo idProducto a la interfaz producto
+     producto.idProducto = idproducto;
 
-    producto.idProducto = idproducto;
     const resultado = await this.productosCollection.doc(idproducto).set(producto)
     resolve(resultado)
   }catch (error){
@@ -36,6 +36,14 @@ return new Promise (async(resolve,reject)=>{
     //para obtener los productos que subamos a nuestra base de datos
 
     //funciona como una captura de datos
+
+     /*
+      snapshotChanges => toma captura del estado de los datos
+      pipe => tuberías que retornan un nuevo arreglo
+      map => "mapea" o recorre esa nueva información
+      a => resguarda la nueva información y la envía como un documento 
+    */
+   
     return this.productosCollection.snapshotChanges()
     .pipe(map(action =>action.map(a => a.payload.doc.data())))
     }

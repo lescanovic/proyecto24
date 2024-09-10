@@ -6,6 +6,7 @@ import { ProductoComponent } from './pages/producto/producto.component';
 import { LibrosComponent } from './pages/libros/libros.component';
 import { IndumentariaComponent } from './pages/indumentaria/indumentaria.component';
 import { AccesoriosComponent } from './pages/accesorios/accesorios.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AccesoriosComponent } from './pages/accesorios/accesorios.component';
     ProductoComponent,
     LibrosComponent,
     IndumentariaComponent,
-    AccesoriosComponent
+    AccesoriosComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
