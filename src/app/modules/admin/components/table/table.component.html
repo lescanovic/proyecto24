@@ -79,16 +79,19 @@
                     <label class="form-label">Selecciona una categoría:</label>
                     <select class="form-control" formControlName="categoria" class="form-select">
                         <option selected>Elija una opción</option>
-                        <option value="rostro">Rostro</option>
-                        <option value="labios">Labios</option>
-                        <option value="ojos">Ojos</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Ingrese una imagen:</label>
-                    <input class="form-control" type="text" formControlName="imagen"
+                    <!-- type : "file" <- recibe archivos
+                         accept="imagen/*" <- acepta todo tipo de extensiones (jpg,png,jpeg,gif)
+                         (change)="cargarImagen($event)" <- Ejecutara el evento "subirImagen" en table.ts 
+                    -->
                         placeholder="Ingrese vínculo de una imagen">
+                        <input type="file" accept="imagen/*" (change)="cargarImagen($event)"> 
                 </div>
 
                 <div class="mb-3">
@@ -154,8 +157,10 @@
 
                 <div class="mb-3">
                     <label class="form-label">Ingrese una imagen:</label>
-                    <input class="form-control" type="text" formControlName="imagen"
-                        placeholder="{{productoEdit.imagen}}">
+                   <!--<input class="form-control" type="text" formControlName="imagen"
+                        placeholder="{{productoEdit.imagen}}">--> 
+
+                        <input type="file" accept="imagen/*" (change)="cargarImagen($event)"> 
                 </div>
 
                 <div class="mb-3">
