@@ -125,7 +125,21 @@ export class IniciosesionComponent {
             icon: "success"
           });
 
-          this.servicioRutas.navigate(['/inicio']);
+          //Almacenamos y enviamos por parametro el rol de los datos de usuario obtenido
+          this.servicioAuth.setUsuarioRol(usuarioData.rol)
+
+          if (usuarioData.rol === 'admin') {
+            //Si es administrador, redirecciona a la pagina "Admin"
+            console.log ("Inicio de administrador")
+              this.servicioRutas.navigate(['/admin'])
+
+          }
+          else{
+            //Si no es admin, redirecciona al inicio
+            console.log("Inicio de visitante")
+            this.servicioRutas.navigate(['/inicio']);
+          }
+     
         })
         .catch(err => {
           Swal.fire({
